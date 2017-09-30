@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 /**
- * Created by Алена on 30.09.2017.
+ * Created by  A Sosnovskyi on 30.09.2017.
  */
 public class DashbordPage {
     private WebDriver driver;
@@ -36,17 +36,17 @@ private List<WebElement> menuList;
         userMenu.findElement(logOutIcon).click();
     }
 
-    private void menuItemBuild() {
+    public int menuItemBuild() {
      WebElement element=   driver.findElement(menu);
         menuList= element.findElements(By.cssSelector(".menu>li.maintab"));
         menuSize=menuList.size();
+        return new Integer(menuSize);
     }
 
     public void menuItemClick(){
-
             menuItemBuild();
-
         menuList.get(index).click();
         index++;
     }
+
 }

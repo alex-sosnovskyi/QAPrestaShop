@@ -7,7 +7,7 @@ import ua.i.pl.sosnovskyi.pages.LoginPage;
 import ua.i.pl.sosnovskyi.utils.Properties;
 
 /**
- * Created by Алена on 30.09.2017.
+ * Created by  A Sosnovskyi on 30.09.2017.
  */
 public class MainMenuTest extends BaseDriver {
     private static String login = "webinar.test@gmail.com";
@@ -22,16 +22,20 @@ public class MainMenuTest extends BaseDriver {
         page.fillPassInput(password);
         page.clickLoginButton();
         DashbordPage dashbordPage = new DashbordPage(driver);
-        for(int i=0; i<3; i++){
+        System.out.println(driver.getTitle());
+        int length = dashbordPage.menuItemBuild() - 1;
+        for (int i = 0; i < length; i++) {
             dashbordPage.menuItemClick();
-            System.out.println(driver.getTitle());
+            String openedPage = driver.getTitle();
+            System.out.println(openedPage);
+            driver.navigate().refresh();
+            String refreshedPage = driver.getTitle();
+            System.out.println("Is the same page? - " + openedPage.equals(refreshedPage));
             driver.navigate().back();
         }
 
-        Thread.sleep(10000);
-
-//        dashbordPage.adminIconClick();
-//        dashbordPage.logOutClick();
+        dashbordPage.adminIconClick();
+        dashbordPage.logOutClick();
         quitDriver(driver);
     }
 }

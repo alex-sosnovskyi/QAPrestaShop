@@ -9,7 +9,7 @@ import ua.i.pl.sosnovskyi.utils.Properties;
 import ua.i.pl.sosnovskyi.BaseDriver;
 
 /**
- * Created by Алена on 30.09.2017.
+ * Created by  A Sosnovskyi on 30.09.2017.
  */
 public class LogInOutTest extends BaseDriver {
     private static String login = "webinar.test@gmail.com";
