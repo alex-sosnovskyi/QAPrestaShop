@@ -57,6 +57,7 @@ String browser= Properties.getBrowser();
         return driver;
     }
     public static void quitDriver(WebDriver driver){
-        driver.quit();
+        if(driver!=null){driver.quit();}
+
     }
 }
