@@ -3,6 +3,7 @@ package ua.i.pl.sosnovskyi.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 /**
  * Created by A Sosnovskyi on 30.09.2017.
@@ -26,9 +27,13 @@ public class LoginPage {
         }
         try {
             driver.navigate().to(url);
-            loginForm = driver.findElement(By.id("login_form"));
         } catch (Exception e) {
            throw new RuntimeException("url is incorrect!!!");
+        }
+        try {
+            loginForm = driver.findElement(By.id("login_form"));
+        } catch (Exception e) {
+            throw new RuntimeException("login_form not found");
         }
     }
     public void fillEmailInput(String login){

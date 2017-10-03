@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import ua.i.pl.sosnovskyi.utils.Properties;
 
 import java.io.File;
@@ -52,8 +53,12 @@ String browser= Properties.getBrowser();
 
     public static WebDriver getConfiguredDriver(){
         WebDriver driver=getDriver();
+//        baseDriver.manage().window().maximize();
+//        baseDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        EventFiringWebDriver driver=new EventFiringWebDriver(baseDriver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.register(new EventHandler());
         return driver;
     }
     public static void quitDriver(WebDriver driver){

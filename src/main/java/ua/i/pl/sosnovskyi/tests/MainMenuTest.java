@@ -1,6 +1,7 @@
 package ua.i.pl.sosnovskyi.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import ua.i.pl.sosnovskyi.BaseDriver;
 import ua.i.pl.sosnovskyi.pages.DashbordPage;
 import ua.i.pl.sosnovskyi.pages.LoginPage;

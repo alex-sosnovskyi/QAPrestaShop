@@ -1,6 +1,7 @@
 package ua.i.pl.sosnovskyi.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ua.i.pl.sosnovskyi.pages.DashbordPage;
