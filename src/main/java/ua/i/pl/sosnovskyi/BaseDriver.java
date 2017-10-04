@@ -51,17 +51,27 @@ String browser= Properties.getBrowser();
 
     }
 
-    public static WebDriver getConfiguredDriver(){
-        WebDriver driver=getDriver();
-//        baseDriver.manage().window().maximize();
-//        baseDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        EventFiringWebDriver driver=new EventFiringWebDriver(baseDriver);
+//    public static WebDriver getConfiguredDriver(){
+//        WebDriver driver=getDriver();
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().window().maximize();
+//        return driver;
+//    }
+    public static EventFiringWebDriver getConfiguredDriver(){
+        WebDriver baseDriver=getDriver();
+                baseDriver.manage().window().maximize();
+        baseDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        EventFiringWebDriver driver=new EventFiringWebDriver(baseDriver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-//        driver.register(new EventHandler());
+        driver.register(new EventHandler());
         return driver;
     }
-    public static void quitDriver(WebDriver driver){
+//    public static void quitDriver(WebDriver driver){
+//        if(driver!=null){driver.quit();}
+//
+//    }
+    public static void quitDriver(EventFiringWebDriver driver){
         if(driver!=null){driver.quit();}
 
     }

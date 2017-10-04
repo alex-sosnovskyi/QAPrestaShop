@@ -15,11 +15,11 @@ import java.util.List;
  * Created by A Sosnovskyi on 01.10.2017.
  */
 public class CategoriesPage {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     private By addCategorySelector = By.id("page-header-desc-category-new_category");
     private By alertSelector = By.cssSelector("div.alert:first-child");
 
-    public CategoriesPage(WebDriver driver) {
+    public CategoriesPage(EventFiringWebDriver driver) {
         this.driver = driver;
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
  * Created by  A Sosnovskyi on 30.09.2017.
  */
 public class DashbordPage {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     private WebElement userMenu;
     private By dropDownHref = By.tagName("a");
     private By logOutIcon = By.id("header_logout");
@@ -26,7 +26,7 @@ public class DashbordPage {
     private int menuSize;
 
     //    private By logOut = By.id("");
-    public DashbordPage(WebDriver driver) {
+    public DashbordPage(EventFiringWebDriver driver) {
         this.driver = driver;
     }
 
@@ -38,6 +38,8 @@ public class DashbordPage {
     }
 
     public void logOutClick() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.elementToBeClickable(logOutIcon));
         userMenu.findElement(logOutIcon).click();
     }
 

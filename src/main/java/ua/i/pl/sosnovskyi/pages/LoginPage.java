@@ -4,18 +4,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by A Sosnovskyi on 30.09.2017.
  */
 public class LoginPage {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     private WebElement loginForm;
-    private By email = By.name("email");
-    private By passwrd = By.name("passwd");
+    private By email = By.id("email");
+    private By passwrd = By.id("passwd");
     private By submit = By.name("submitLogin");
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(EventFiringWebDriver driver) {
         if (driver==null){
             throw new RuntimeException("Driver is not available!!!");
         }
@@ -30,29 +32,36 @@ public class LoginPage {
         } catch (Exception e) {
            throw new RuntimeException("url is incorrect!!!");
         }
+
+    }
+    public void fillEmailInput(String login){
+//        WebDriverWait wait = new WebDriverWait(driver, 5);
+//        wait.until(ExpectedConditions.elementToBeSelected(By.id("login_form")));
         try {
             loginForm = driver.findElement(By.id("login_form"));
         } catch (Exception e) {
             throw new RuntimeException("login_form not found");
         }
-    }
-    public void fillEmailInput(String login){
         if (loginForm==null){
             throw new RuntimeException("login form is not available!!!");
         }
-        loginForm.findElement(email).sendKeys(login);
+//        System.out.println(driver);
+//        System.out.println(email);
+        WebElement element = loginForm.findElement(email);
+//        System.out.println(element);
+        element.sendKeys(login);
     }
     public void fillPassInput(String password){
         if (loginForm==null){
             throw new RuntimeException("login form is not available!!!");
         }
-        loginForm.findElement(passwrd).sendKeys(password);
+        driver.findElement(passwrd).sendKeys(password);
     }
 
     public void clickLoginButton(){
         if (loginForm==null){
             throw new RuntimeException("login form is not available!!!");
         }
-        loginForm.findElement(submit).click();
+        driver.findElement(submit).click();
     }
 }

@@ -35,7 +35,7 @@ import static java.lang.System.out;
 public class AddCategoryTest extends BaseDriver {
     private static String login = "webinar.test@gmail.com";
     private static String password = "Xcg7299bnSmMuRLp9ITw";
-    private static WebDriver driver;
+    private static EventFiringWebDriver driver;
     private static  String newCategory="newCategoryTest2";
     public static void main(String[] args) throws InterruptedException {
         driver = getConfiguredDriver();

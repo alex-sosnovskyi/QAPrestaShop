@@ -13,7 +13,7 @@ import ua.i.pl.sosnovskyi.utils.Properties;
 public class MainMenuTest extends BaseDriver {
     private static String login = "webinar.test@gmail.com";
     private static String password = "Xcg7299bnSmMuRLp9ITw";
-    private static WebDriver driver;
+    private static EventFiringWebDriver driver;
 
     public static void main(String[] args) {
         driver = getConfiguredDriver();

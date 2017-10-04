@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by A Sosnovskyi on 02.10.2017.
  */
 public class AddCategoryPage {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     private By addFormSelector = By.id("category_form");
     private By categorynameInputSelector = By.id("name_1");
     private By saveButtonSelector = By.id("category_form_submit_btn");
@@ -19,7 +19,7 @@ public class AddCategoryPage {
     private WebElement addForm;
     private WebElement categorynameInput;
 
-    public AddCategoryPage(WebDriver driver) {
+    public AddCategoryPage(EventFiringWebDriver driver) {
         this.driver = driver;
     }
 

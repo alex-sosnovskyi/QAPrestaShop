@@ -77,7 +77,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
-        System.out.println("Element "+webElement.toString()+" find successfully");
+        System.out.println("Element  find successfully");
     }
 
     @Override
@@ -87,7 +87,7 @@ public class EventHandler implements WebDriverEventListener {
 
     @Override
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
-        System.out.println("Element "+webElement.getTagName()+" successfully click");
+        System.out.println("Element successfully click");
     }
 
     @Override
